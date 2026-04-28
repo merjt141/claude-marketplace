@@ -1,7 +1,7 @@
 {
   "name": "git-plugins",
   "description": "PEOPL Health Tech git plugins for Claude Code",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "author": {
     "name": "PEOPL Health Tech",
     "email": "contacto@peopl.health"
