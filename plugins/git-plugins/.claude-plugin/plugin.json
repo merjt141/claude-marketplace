@@ -1,14 +1,8 @@
 {
   "name": "git-plugins",
   "description": "PEOPL Health Tech git plugins for Claude Code",
-  "version": "2.0.4",
   "author": {
     "name": "PEOPL Health Tech",
     "email": "contacto@peopl.health"
-  },
-  "source": {
-    "source": "git-subdir",
-    "url": "merjt141/claude-marketplace",
-    "path": "plugins/git-plugins"
   }
 }
