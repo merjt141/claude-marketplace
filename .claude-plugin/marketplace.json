@@ -1,0 +1,16 @@
+{
+  "name": "peopl-plugins",
+  "description": "A marketplace for PEOPL Health Tech Claude Code plugins",
+  "version": "1.0.0",
+  "owner": {
+    "name": "PEOPL Health Tech",
+    "email": "contacto@peopl.health"
+  },
+  "plugins": [
+    {
+      "name": "git-plugins",
+      "source": "./plugins/git-plugins",
+      "description": "PEOPL Health Tech git plugins for Claude Code"
+    }
+  ]
+}
