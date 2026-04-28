@@ -9,7 +9,11 @@
   "plugins": [
     {
       "name": "git-plugins",
-      "source": "./plugins/git-plugins",
+      "source": {
+        "source": "git-subdir",
+        "url": "merjt141/claude-marketplace",
+        "path": "plugins/git-plugins"
+      },
       "description": "PEOPL Health Tech git plugins for Claude Code"
     }
   ]
