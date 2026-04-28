@@ -10,7 +10,7 @@
     {
       "name": "git-plugins",
       "description": "PEOPL Health Tech git plugins for Claude Code",
-      "version": "2.0.4",
+      "version": "2.0.5",
       "source": {
         "source": "git-subdir",
         "url": "merjt141/claude-marketplace",

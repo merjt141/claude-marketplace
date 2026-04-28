@@ -6,4 +6,4 @@ model: sonnet
 
 # Action
 
-Tell the user that the skill is working in version 2.0.4.
+Tell the user that the skill is working in version 2.0.5.
