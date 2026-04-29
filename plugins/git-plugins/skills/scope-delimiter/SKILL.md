@@ -1,90 +1,41 @@
 ---
 name: scope-delimiter
-description: "Classifies the task type (feat/, fix/, exp/, opt/, refactor/, chore/, docs/) and determines if it must be split into PR-sized chunks. Invoked as step 1 from within `changes-workflow` — do not invoke standalone unless the user explicitly asks to classify a task without running the full workflow. SKIP when the task is purely exploratory (no code changes planned)."
+description: "Classifies the task type (feat/, fix/, exp/, opt/, refactor/, chore/, docs/) and determines if it must be split into PR-sized chunks. Invoked within a changes-workflow — do not invoke standalone unless the user explicitly asks to classify a task without running the full workflow. SKIP when the task is purely exploratory (no code changes planned)."
 model: sonnet
 ---
 
-## Clarifications
+Classify the task and decide whether it fits in one PR. Return only the output block at the end.
 
-Before proceeding with any task, clarify the following to yourself:
+## Types
 
-1. **What is the current task or changes?**
-2. **What is the scope of the task or changes?**
-3. **What is the type of the task or changes?**
-4. **Is the task or changes too large to fit in one PR?**
+- **feat/** — adds a new user-facing capability
+- **fix/** — corrects broken behavior
+- **exp/** — short-lived experiment; must be self-contained and easy to revert. 14-day deadline: passed → reopen as `feat/`, failed or silent → automated revert
+- **opt/** — performance-only; observable behavior unchanged
+- **refactor/** — internal restructure; observable behavior unchanged, existing tests pass without modification
+- **chore/** — tooling, deps, config, CI; no user-facing behavior change
+- **docs/** — documentation only; no application code, config, or CI
 
-## PR Type Requirements
+If the work spans multiple types (e.g. a feature plus an unrelated refactor), it must be split.
 
-### Feature (`feat/`)
+## Fits in one PR?
 
-- One feature per PR, self-contained and mergeable without breaking existing functionality
-- Must reuse existing services and components before introducing new abstractions
-- Must include: UI component/page, types in `interface/`, service calls if needed
-- Must NOT include: unrelated refactors, style fixes, or cosmetic changes
+A PR does ONE thing. Signs it should be split:
 
-### Fix (`fix/`)
-
-- Reference the issue or bug report in the PR description
-- Describe the root cause and how it was fixed
-- Keep the scope minimal — fix the bug, nothing more
-- If you find other bugs while fixing, create separate issues/PRs
-
-### Experiment (`exp/`)
-
-- Lighter review process to encourage rapid iteration
-- Must be self-contained, isolated, and easy to roll back
-- Must not break existing functionality or introduce security vulnerabilities
-- **14-day deadline:** Author must report outcome. Passed → open a `feat/` PR with full standards. Failed or no response → automated revert
-
-### Optimization (`opt/`)
-
-- Include benchmark results (before vs. after) in the PR description
-- Must not alter observable behavior — if behavior changes, reclassify as `feat/` or `fix/`
-- Explain the bottleneck that motivated the change
-
-### Refactor (`refactor/`)
-
-- Must not change any observable behavior
-- Existing tests must pass without modification
-- Explain the motivation (readability, maintainability, reducing duplication)
-
-### Chore (`chore/`)
-
-- Include summary of what changed and why
-- No user-facing behavior change
-
-### Docs (`docs/`)
-
-- Documentation-only changes (README, ARCHITECTURE, CONTRIBUTING, inline docs)
-- Must NOT touch application code, config, or CI
-- Keep the scope minimal — one document or one topic per PR
-
-## Scope Rules
-
-A PR must do ONE thing. Ask yourself: "This PR ___" — if you can't finish that sentence in one short phrase, it's too big.
-
-**Signs a PR should be split:**
-- Touches more than 3-4 unrelated files
 - The description needs "and" more than once
-- It mixes a feature with a refactor
-- It changes both a page and an unrelated service
+- Touches more than 3–4 unrelated files
+- Mixes a feature with a refactor, or a page with an unrelated service
 
-**How to split:**
-1. Identify the independent pieces
-2. Implement the smallest piece first (usually types or services)
-3. Create separate branches and PRs for each piece
-4. Note dependencies between PRs in the descriptions
+When splitting, order pieces bottom-up (types/services before UI) and note dependencies between them.
 
 ## Output
 
-After clarifying scope, return this exact format to the caller:
+Return exactly this block to the caller:
 
 ```
 - **Type**: <feat/ | fix/ | exp/ | opt/ | refactor/ | chore/ | docs/>
 - **Branch name**: <type>/<short-kebab-case>
 - **Fits in one PR**: <yes | no>
-- **Rationale**: <one sentence explaining the classification>
+- **Rationale**: <one sentence>
 - **Split proposal** (only if "Fits in one PR" = no): <list of independent PRs>
 ```
-
-The caller (`changes-workflow`) consumes this output to drive the planning step.
