@@ -39,17 +39,3 @@ Always read [CONTRIBUTING.md](./references/CONTRIBUTING.md) for detailed require
 ## Rules
 
 1. Do not use Edit/Write directly without user approval — use the Workflow instead.
-
-## Branch Naming
-
-| PR Type | Prefix | Example |
-|---------|--------|---------|
-| Feature | `feat/` | `feat/user-onboarding` |
-| Fix | `fix/` | `fix/duplicate-session` |
-| Experiment | `exp/` | `exp/vector-search-approach` |
-| Optimization | `opt/` | `opt/query-batching` |
-| Refactor | `refactor/` | `refactor/auth-module` |
-| Chore | `chore/` | `chore/upgrade-typescript` |
-| Docs | `docs/` | `docs/api-reference` |
-
-CI automatically assigns the correct PR template based on branch prefix.

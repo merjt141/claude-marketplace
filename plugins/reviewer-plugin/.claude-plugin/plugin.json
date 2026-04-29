@@ -1,0 +1,8 @@
+{
+  "name": "reviewer-plugin",
+  "description": "PEOPL Health Tech reviewer plugin for Claude Code",
+  "author": {
+    "name": "PEOPL Health Tech",
+    "email": "contacto@peopl.health"
+  }
+}

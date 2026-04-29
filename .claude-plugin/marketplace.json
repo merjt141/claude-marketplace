@@ -10,11 +10,31 @@
     {
       "name": "git-plugins",
       "description": "PEOPL Health Tech git plugins for Claude Code",
-      "version": "2.0.5",
+      "version": "2.0.7",
       "source": {
         "source": "git-subdir",
         "url": "merjt141/claude-marketplace",
         "path": "plugins/git-plugins"
+      }
+    },
+    {
+      "name": "interface-plugin",
+      "description": "PEOPL Health Tech interface plugin for Claude Code",
+      "version": "1.0.1",
+      "source": {
+        "source": "git-subdir",
+        "url": "merjt141/claude-marketplace",
+        "path": "plugins/interface-plugin"
+      }
+    },
+    {
+      "name": "reviewer-plugin",
+      "description": "PEOPL Health Tech reviewer plugin for Claude Code",
+      "version": "1.0.1",
+      "source": {
+        "source": "git-subdir",
+        "url": "merjt141/claude-marketplace",
+        "path": "plugins/reviewer-plugin"
       }
     }
   ]

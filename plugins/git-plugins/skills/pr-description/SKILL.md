@@ -1,6 +1,6 @@
 ---
 name: pr-description
-description: Writes pull request titles and bodies. Use this skill whenever the user asks to write, draft, generate, or create a PR description, pull request body, or PR title — even if they phrase it casually like "write up the PR" or "describe these changes". Also invoked from `changes-workflow` step 6 when opening a PR.
+description: Writes pull request titles and bodies. Use this skill whenever the user asks to write, draft, generate, or create a PR description, pull request body, or PR title — even if they phrase it casually like "write up the PR" or "describe these changes".
 model: sonnet
 ---
 

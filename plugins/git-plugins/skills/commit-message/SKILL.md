@@ -1,6 +1,6 @@
 ---
 name: commit-message
-description: Writes a single-line git commit message. Use this skill whenever the user asks to commit, write a commit message, stage changes, or draft a commit subject — even if they just say "commit this" or "what should my commit say?". Also invoked from `changes-workflow` step 6.
+description: Writes a single-line git commit message. Use this skill whenever the user asks to commit, write a commit message, stage changes, or draft a commit subject — even if they just say "commit this" or "what should my commit say?".
 model: sonnet
 ---
 

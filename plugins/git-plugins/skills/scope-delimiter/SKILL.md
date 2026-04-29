@@ -1,6 +1,6 @@
 ---
 name: scope-delimiter
-description: "Classifies the task type (feat/, fix/, exp/, opt/, refactor/, chore/, docs/) and determines if it must be split into PR-sized chunks. Invoked as step 1 from within `changes-workflow` — do not invoke standalone unless the user explicitly asks to classify a task without running the full workflow. SKIP when the task is purely exploratory (no code changes planned)."
+description: "Classifies the task type (feat/, fix/, exp/, opt/, refactor/, chore/, docs/) and determines if it must be split into PR-sized chunks. Invoked as step 1 from within a changes-workflow — do not invoke standalone unless the user explicitly asks to classify a task without running the full workflow. SKIP when the task is purely exploratory (no code changes planned)."
 model: sonnet
 ---
 
@@ -86,5 +86,3 @@ After clarifying scope, return this exact format to the caller:
 - **Rationale**: <one sentence explaining the classification>
 - **Split proposal** (only if "Fits in one PR" = no): <list of independent PRs>
 ```
-
-The caller (`changes-workflow`) consumes this output to drive the planning step.
