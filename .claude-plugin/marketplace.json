@@ -13,7 +13,7 @@
       "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/engineering-standards",
+        "url": "merjt141/claude-marketplace",
         "path": "plugins/git-plugins"
       }
     },
@@ -23,7 +23,7 @@
       "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/engineering-standards",
+        "url": "merjt141/claude-marketplace",
         "path": "plugins/agent-plugins"
       }
     },
@@ -33,7 +33,7 @@
       "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/engineering-standards",
+        "url": "merjt141/claude-marketplace",
         "path": "plugins/reviewer-plugin"
       }
     }
