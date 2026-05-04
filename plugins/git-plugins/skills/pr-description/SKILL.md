@@ -9,35 +9,38 @@ model: sonnet
 Before writing anything, gather context by running:
 ```bash
 git log main..HEAD --oneline
-git diff main --stat
+git diff main..HEAD --stat
 ```
 
 Read the output to understand what was actually changed — which files, how many lines, and what the commits say. This context is what makes the PR description accurate and useful.
 
 ### Step 2: PR Title
 
-Follow the format: `<type>: <short description>` — colon, no brackets. This differs intentionally from commit subjects, which use `[<type>] <description>` (brackets). See `commit-message` skill for commit subject format.
+Follow the format: `<type>: <short description>` — colon, no brackets. This differs intentionally from commit subjects, which use `[<type>] <description>` (brackets). See `commit-message` skill for commit subject format. Only for type feat, the title uses feature.
 
 Examples:
-- `feat: add date filter to dashboard`
+- `feature: add date filter to dashboard`
 - `fix: prevent duplicate session creation`
 - `chore: upgrade typescript to 5.x`
 
 ### Step 3: Select template
 
-Infer branch type from the current branch name prefix and load the matching template:
+Infer branch type from the current branch name prefix and match the template:
 
 | Prefix | Template |
 |---|---|
-| `feat/` | [feature.md](assets/templates/feature.md) |
-| `fix/` | [fix.md](assets/templates/fix.md) |
-| `exp/` | [experiment.md](assets/templates/experiment.md) |
-| `opt/` | [optimization.md](assets/templates/optimization.md) |
-| `refactor/` | [refactor.md](assets/templates/refactor.md) |
-| `chore/` | [chore.md](assets/templates/chore.md) |
-| `docs/` | [docs.md](assets/templates/docs.md) |
+| `feat/` | feature.md |
+| `fix/` | fix.md |
+| `exp/` | experiment.md |
+| `opt/` | optimization.md |
+| `refactor/` | refactor.md |
+| `chore/` | chore.md |
+| `docs/` | docs.md |
 
-If the branch prefix doesn't match any of the above, default to [feature.md](assets/templates/feature.md).
+If the branch prefix doesn't match any of the above, default to feature.md.
+
+Then, using the following command extract the template and load it:
+`gh api repos/PEOPL-Health-Tech/engineering-standards/contents/.github/PULL_REQUEST_TEMPLATE/<template> -H "Accept: application/vnd.github.raw"`
 
 ### Step 4: Fill in the template
 

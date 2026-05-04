@@ -1,39 +1,39 @@
 {
-  "name": "peopl-plugins",
-  "description": "A marketplace for PEOPL Health Tech Claude Code plugins",
+  "name": "merjt141-plugins",
+  "description": "A marketplace for merjt141 Claude Code plugins",
   "version": "1.0.0",
   "owner": {
-    "name": "PEOPL Health Tech",
-    "email": "contacto@peopl.health"
+    "name": "merjt141",
+    "email": "merjt141@gmail.com"
   },
   "plugins": [
     {
       "name": "git-plugins",
-      "description": "PEOPL Health Tech git plugins for Claude Code",
-      "version": "3.0.0",
+      "description": "merjt141 git plugins for Claude Code",
+      "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/claude-marketplace",
+        "url": "merjt141/engineering-standards",
         "path": "plugins/git-plugins"
       }
     },
     {
-      "name": "interface-plugin",
-      "description": "PEOPL Health Tech interface plugin for Claude Code",
-      "version": "3.0.0",
+      "name": "agent-plugins",
+      "description": "merjt141 agent plugins for Claude Code",
+      "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/claude-marketplace",
-        "path": "plugins/interface-plugin"
+        "url": "merjt141/engineering-standards",
+        "path": "plugins/agent-plugins"
       }
     },
     {
       "name": "reviewer-plugin",
-      "description": "PEOPL Health Tech reviewer plugin for Claude Code",
-      "version": "3.0.0",
+      "description": "merjt141 reviewer plugin for Claude Code",
+      "version": "1.0.0",
       "source": {
         "source": "git-subdir",
-        "url": "merjt141/claude-marketplace",
+        "url": "merjt141/engineering-standards",
         "path": "plugins/reviewer-plugin"
       }
     }

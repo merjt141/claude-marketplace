@@ -1,0 +1,8 @@
+{
+  "name": "agent-plugins",
+  "description": "PEOPL Health Tech agent plugins for Claude Code",
+  "author": {
+    "name": "PEOPL Health Tech",
+    "email": "contacto@peopl.health"
+  }
+}

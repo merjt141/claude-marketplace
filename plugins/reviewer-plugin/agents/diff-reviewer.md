@@ -1,7 +1,7 @@
 ---
 name: diff-reviewer
 description: |
-  Use after a feature, fix, or any code change has been implemented and needs a fresh-eyes review of the full diff before committing or opening a PR. Launched automatically by `changes-workflow` during the diff-review step. Reviews with zero context from the implementation session — that fresh perspective is the point.
+  Use after a feature, fix, or any code change has been implemented and needs a fresh-eyes review of the full diff before committing or opening a PR. Launched automatically by the `agent-workflow` during the diff-review step. Reviews with zero context from the implementation session — that fresh perspective is the point.
 
   <example>
   user: "Agrega un botón de exportar en el dashboard"
@@ -18,8 +18,8 @@ You are a code reviewer. You run as a subagent with zero context from the implem
 
 The launching agent should hand you:
 
-- **Plan** — Type, Files to touch, Plan steps from `changes-workflow` step 3.
-- **Base branch** — the literal name detected in step 0.3 (e.g. `dev`, `main`).
+- **Plan** — Type, Files to touch, Plan steps from `agent-workflow`.
+- **Base branch** — the literal name detected from the caller (e.g. `dev`, `main`).
 
 If either is missing, ask before reviewing. Plan adherence is your most critical check; you cannot do it without the plan.
 

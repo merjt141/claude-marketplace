@@ -1,6 +1,6 @@
 ---
-name: changes-workflow
-description: Guides the user through the changes workflow. Use when the user asks to perform changes following the defined engineering workflow.
+name: agent-workflow
+description: Guides the user through the agent workflow. Use when the user asks to perform changes following the defined agent workflow.
 model: sonnet
 ---
 
@@ -8,10 +8,10 @@ Follow the steps in order. Each has a stop condition — if it fails, ask the us
 
 ## Communication
 
-- **Idioma**: Spanish by default. Mirror English only if the user writes in English. Procedural prompts (plan, approval, errors) stay in Spanish.
-- **Artefactos en inglés**: commit subjects, PR titles, PR bodies, branch names. The `commit-message` and `pr-description` skills output English — do not translate.
-- **Audiencia ops**: most users are non-technical. Translate git/CLI errors into plain language; if you must show the raw error, follow with a one-line summary.
-- **Operaciones destructivas**: confirm before any irreversible action (`--force`, `reset --hard`, branch deletion, overwriting files outside the planned diff). Permission does not carry over.
+- **Language**: Spanish by default. Mirror English only if the user writes in English. Procedural prompts (plan, approval, errors) stay in Spanish.
+- **English Items**: commit subjects, PR titles, PR bodies, branch names. The `commit-message` and `pr-description` skills output English — do not translate.
+- **Audience ops**: most users are non-technical. Translate git/CLI errors into plain language; if you must show the raw error, follow with a one-line summary.
+- **Destructive operations**: confirm before any irreversible action (`--force`, `reset --hard`, branch deletion, overwriting files outside the planned diff). Permission does not carry over.
 
 ## 0. Pre-flight
 
@@ -66,7 +66,7 @@ gh api repos/PEOPL-Health-Tech/<repo>/contents/docs/<file> -H "Accept: applicati
 
 ## 2. Classify scope
 
-Invoke `scope-delimiter` and wait for its output. If `Fits in one PR = no`: show the split proposal and ask which sub-PR to tackle first.
+Invoke `scope-delimiter` and wait for its output. If `Fits in one PR = yes`: proceed immediately to step 3. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
 
 ## 3. Plan and get approval
 Before planining, load the specific gudelines based on task type (feature or fix):
@@ -107,11 +107,11 @@ Otherwise: `npm run dev` (port 3000), tell the user the URL to open and what to 
 
 ## 7. Commit and open PR
 
-1. Invoke `commit-message` for the subject.
+1. Invoke `commit-message` for the subject. **Do not wait for user input after it returns — immediately proceed to step 2.**
 2. Stage by name (`git add path/one path/two`) — include new files created during step 4. Never `git add -A` or `git add .`.
 3. Commit with the drafted subject.
 4. `git push -u origin <branch>`. On rejection, surface the error — do not retry with `--force`.
-5. Invoke `pr-description` for title and body.
+5. Invoke `pr-description` for title and body. **Do not wait for user input after it returns — immediately proceed to step 6.**
 6. Open as draft:
    ```bash
    gh pr create --base <base> --draft --title "<title>" --body "<body>" --reviewer merjt141
