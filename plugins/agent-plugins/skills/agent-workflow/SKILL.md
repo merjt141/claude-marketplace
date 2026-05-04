@@ -66,7 +66,7 @@ gh api repos/PEOPL-Health-Tech/<repo>/contents/docs/<file> -H "Accept: applicati
 
 ## 2. Classify scope
 
-Invoke `scope-delimiter` and wait for its output. If `Fits in one PR = yes`: proceed immediately to step 3. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
+Invoke `scope-delimiter`. **Do not wait for user input after it returns.** If `Fits in one PR = yes`: immediately continue to step 3 in the same response turn. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
 
 ## 3. Plan and get approval
 Before planining, load the specific gudelines based on task type (feature or fix):
