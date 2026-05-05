@@ -66,7 +66,7 @@ gh api repos/PEOPL-Health-Tech/<repo>/contents/docs/<file> -H "Accept: applicati
 
 ## 2. Classify scope
 
-Invoke `scope-delimiter`. **Do not wait for user input after it returns.** If `Fits in one PR = yes`: immediately continue to step 3 in the same response turn. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
+Invoke `scope-delimiter`. **Do not wait for user input after the skill returns.** If `Fits in one PR = yes`: immediately continue to step 3 in the same response turn. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
 
 ## 3. Plan and get approval
 Before planining, load the specific gudeline based on task type:
@@ -112,11 +112,11 @@ Otherwise: `npm run dev` (port 3000), tell the user the URL to open and what to 
 
 ## 7. Commit and open PR
 
-1. Invoke `commit-message` for the subject. **Do not wait for user input after it returns — immediately proceed to step 2.**
+1. Invoke `commit-message` for the subject. **Do not wait for user input after the skill returns — immediately proceed to step 2.**
 2. Stage by name (`git add path/one path/two`) — include new files created during step 4. Never `git add -A` or `git add .`.
 3. Commit with the drafted subject.
 4. `git push -u origin <branch>`. On rejection, surface the error — do not retry with `--force`.
-5. Invoke `pr-description` for title and body. **Do not wait for user input after it returns — immediately proceed to step 6.**
+5. Invoke `pr-description` for title and body. **Do not wait for user input after the skill returns — immediately proceed to step 6.**
 6. Open as draft:
    ```bash
    gh pr create --base <base> --draft --title "<title>" --body "<body>" --reviewer merjt141
