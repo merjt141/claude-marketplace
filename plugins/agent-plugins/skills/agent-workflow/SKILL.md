@@ -69,9 +69,13 @@ gh api repos/PEOPL-Health-Tech/<repo>/contents/docs/<file> -H "Accept: applicati
 Invoke `scope-delimiter`. **Do not wait for user input after it returns.** If `Fits in one PR = yes`: immediately continue to step 3 in the same response turn. If `Fits in one PR = no`: show the split proposal, ask which sub-PR to tackle first, and wait for the user's answer before continuing.
 
 ## 3. Plan and get approval
-Before planining, load the specific gudelines based on task type (feature or fix):
+Before planining, load the specific gudelines based on task type:
+   |type|guideline|
+   |---|---|
+   |feat|feature|
+   |fix|fix|
 ```bash
-   gh api repos/PEOPL-Health-Tech/engineering-standards/contents/prompt-guidelines/types/<type>.md \
+   gh api repos/PEOPL-Health-Tech/engineering-standards/contents/prompt-guidelines/types/<guideline>.md \
      -H "Accept: application/vnd.github.raw"
    ```
 Use that guideline along the engineering standards to build the pre-filled plan and show it to the user. Wait for clear approval ("sí", "dale", "listo", "aprobado"). Anything ambiguous is not approval.
