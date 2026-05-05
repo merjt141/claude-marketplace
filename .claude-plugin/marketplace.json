@@ -20,7 +20,7 @@
     {
       "name": "agent-plugins",
       "description": "merjt141 agent plugins for Claude Code",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "source": {
         "source": "git-subdir",
         "url": "merjt141/claude-marketplace",
